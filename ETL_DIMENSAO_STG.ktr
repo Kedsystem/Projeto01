@@ -437,7 +437,7 @@
   <notepads>
   </notepads>
   <connection>
-    <name>SETELIOOK</name>
+    <name>STELIOOK</name>
     <server>10.1.211.100</server>
     <type>ORACLE</type>
     <access>Native</access>
@@ -1414,7 +1414,7 @@
       <method>none</method>
       <schema_name/>
     </partitioning>
-    <connection>SETELIOOK</connection>
+    <connection>STELIOOK</connection>
     <commit>100</commit>
     <update_bypassed>N</update_bypassed>
     <lookup>
