@@ -1,0 +1,2 @@
+1 - Abrir o JOB FINAL para executar o projeto
+2 - Alterar o diretório raiz do arquivo DATASET_TESTE_DE.csv na transformação ETL_DIMENSAO_STG.ktr dos steps CSV file inputs
