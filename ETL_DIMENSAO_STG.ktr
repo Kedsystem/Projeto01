@@ -589,7 +589,7 @@
       <method>none</method>
       <schema_name/>
     </partitioning>
-    <filename>D:\PDI\Involves\Projeto01\DATASET_TESTE_DE.csv</filename>
+    <filename>${Internal.Entry.Current.Directory}/DATASET_TESTE_DE.csv</filename>
     <filename_field/>
     <rownum_field/>
     <include_filename>N</include_filename>
@@ -740,7 +740,7 @@
       <method>none</method>
       <schema_name/>
     </partitioning>
-    <filename>D:\PDI\Involves\Projeto01\DATASET_TESTE_DE.csv</filename>
+    <filename>${Internal.Entry.Current.Directory}/DATASET_TESTE_DE.csv</filename>
     <filename_field/>
     <rownum_field/>
     <include_filename>N</include_filename>
@@ -891,7 +891,7 @@
       <method>none</method>
       <schema_name/>
     </partitioning>
-    <filename>D:\PDI\Involves\Projeto01\DATASET_TESTE_DE.csv</filename>
+    <filename>${Internal.Entry.Current.Directory}/DATASET_TESTE_DE.csv</filename>
     <filename_field/>
     <rownum_field/>
     <include_filename>N</include_filename>
@@ -1042,7 +1042,7 @@
       <method>none</method>
       <schema_name/>
     </partitioning>
-    <filename>D:\PDI\Involves\Projeto01\DATASET_TESTE_DE.csv</filename>
+    <filename>${Internal.Entry.Current.Directory}/DATASET_TESTE_DE.csv</filename>
     <filename_field/>
     <rownum_field/>
     <include_filename>N</include_filename>

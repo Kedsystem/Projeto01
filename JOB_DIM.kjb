@@ -316,7 +316,7 @@
       <attributes/>
       <specification_method>filename</specification_method>
       <trans_object_id/>
-      <filename>D:\PDI\Involves\Projeto01\ETL_DIMENSAO_STG.ktr</filename>
+      <filename>${Internal.Entry.Current.Directory}/ETL_DIMENSAO_STG.ktr</filename>
       <transname/>
       <arg_from_previous>N</arg_from_previous>
       <params_from_previous>N</params_from_previous>
@@ -354,7 +354,7 @@
       <attributes/>
       <specification_method>filename</specification_method>
       <trans_object_id/>
-      <filename>D:\PDI\Involves\Projeto01\DW_DCALENDARIO.ktr</filename>
+      <filename>${Internal.Entry.Current.Directory}/DW_DCALENDARIO.ktr</filename>
       <transname/>
       <arg_from_previous>N</arg_from_previous>
       <params_from_previous>N</params_from_previous>
@@ -392,7 +392,7 @@
       <attributes/>
       <specification_method>filename</specification_method>
       <trans_object_id/>
-      <filename>D:\PDI\Involves\Projeto01\DW_DLINHAPRODUTO.ktr</filename>
+      <filename>${Internal.Entry.Current.Directory}/DW_DLINHAPRODUTO.ktr</filename>
       <transname/>
       <arg_from_previous>N</arg_from_previous>
       <params_from_previous>N</params_from_previous>
@@ -430,7 +430,7 @@
       <attributes/>
       <specification_method>filename</specification_method>
       <trans_object_id/>
-      <filename>D:\PDI\Involves\Projeto01\DW_DPDV.ktr</filename>
+      <filename>${Internal.Entry.Current.Directory}/DW_DPDV.ktr</filename>
       <transname/>
       <arg_from_previous>N</arg_from_previous>
       <params_from_previous>N</params_from_previous>

@@ -315,7 +315,7 @@
       <attributes/>
       <specification_method>filename</specification_method>
       <trans_object_id/>
-      <filename>D:\PDI\Involves\Projeto01\FT_DISPONIBILIDADE.ktr</filename>
+      <filename>${Internal.Entry.Current.Directory}/FT_DISPONIBILIDADE.ktr</filename>
       <transname/>
       <arg_from_previous>N</arg_from_previous>
       <params_from_previous>N</params_from_previous>
@@ -353,7 +353,7 @@
       <attributes/>
       <specification_method>filename</specification_method>
       <trans_object_id/>
-      <filename>D:\PDI\Involves\Projeto01\FT_DISPONIBILIDADE_AGREGADA.ktr</filename>
+      <filename>${Internal.Entry.Current.Directory}/FT_DISPONIBILIDADE_AGREGADA.ktr</filename>
       <transname/>
       <arg_from_previous>N</arg_from_previous>
       <params_from_previous>N</params_from_previous>
@@ -391,7 +391,7 @@
       <attributes/>
       <specification_method>filename</specification_method>
       <trans_object_id/>
-      <filename>D:\PDI\Involves\Projeto01\FT_PONTO_EXTRA.ktr</filename>
+      <filename>${Internal.Entry.Current.Directory}/FT_PONTO_EXTRA.ktr</filename>
       <transname/>
       <arg_from_previous>N</arg_from_previous>
       <params_from_previous>N</params_from_previous>
@@ -429,7 +429,7 @@
       <attributes/>
       <specification_method>filename</specification_method>
       <trans_object_id/>
-      <filename>D:\PDI\Involves\Projeto01\FT_PONTO_EXTRA_AGRAGADA.ktr</filename>
+      <filename>${Internal.Entry.Current.Directory}/FT_PONTO_EXTRA_AGRAGADA.ktr</filename>
       <transname/>
       <arg_from_previous>N</arg_from_previous>
       <params_from_previous>N</params_from_previous>
