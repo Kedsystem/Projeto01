@@ -437,14 +437,14 @@
   <notepads>
   </notepads>
   <connection>
-    <name>SETELIOOK</name>
-    <server>10.1.211.100</server>
-    <type>ORACLE</type>
+    <name>STELIOOK</name>
+    <server>localhost</server>
+    <type>POSTGRESQL</type>
     <access>Native</access>
-    <database>dborcl</database>
-    <port>1521</port>
-    <username>STELIOOK</username>
-    <password>Encrypted 2be98afc86aa7f2e4b80dfd7c8f87bad1</password>
+    <database>involves</database>
+    <port>5432</port>
+    <username>postgres</username>
+    <password>Encrypted 2be98afc86aa7f2e4f34dfd2187cbfb83</password>
     <servername/>
     <data_tablespace/>
     <index_tablespace/>
@@ -463,7 +463,7 @@
       </attribute>
       <attribute>
         <code>PORT_NUMBER</code>
-        <attribute>1521</attribute>
+        <attribute>5432</attribute>
       </attribute>
       <attribute>
         <code>PRESERVE_RESERVED_WORD_CASE</code>
@@ -471,10 +471,6 @@
       </attribute>
       <attribute>
         <code>QUOTE_ALL_FIELDS</code>
-        <attribute>N</attribute>
-      </attribute>
-      <attribute>
-        <code>STRICT_NUMBER_38_INTERPRETATION</code>
         <attribute>N</attribute>
       </attribute>
       <attribute>
@@ -529,7 +525,7 @@
       <method>none</method>
       <schema_name/>
     </partitioning>
-    <connection>SETELIOOK</connection>
+    <connection>STELIOOK</connection>
     <commit>100</commit>
     <update_bypassed>N</update_bypassed>
     <lookup>
@@ -601,7 +597,7 @@
     </partitioning>
     <schema/>
     <table>DW_DCALENDARIO</table>
-    <connection>SETELIOOK</connection>
+    <connection>STELIOOK</connection>
     <commit>100</commit>
     <update>N</update>
     <fields>
@@ -662,7 +658,7 @@
     </partitioning>
     <schema/>
     <table>DW_DLINHA_PRODUTO</table>
-    <connection>SETELIOOK</connection>
+    <connection>STELIOOK</connection>
     <commit>100</commit>
     <update>N</update>
     <fields>
@@ -723,7 +719,7 @@
     </partitioning>
     <schema/>
     <table>DW_DPDV</table>
-    <connection>SETELIOOK</connection>
+    <connection>STELIOOK</connection>
     <commit>100</commit>
     <update>N</update>
     <fields>
@@ -818,11 +814,11 @@
       <method>none</method>
       <schema_name/>
     </partitioning>
-    <connection>SETELIOOK</connection>
-    <sql>SELECT ID_PONTO_VENDA, ID_LINHA_PRODUTO, PERFIL_PONTO_VENDA PERFIL_PDV,  TO_CHAR(DATA, 'YYYY') ANO, TO_CHAR(DATA, 'MM') MES, COUNT(*) QUANTIDADE
-  FROM STG_DATASET
+    <connection>STELIOOK</connection>
+    <sql>SELECT ID_PONTO_VENDA, ID_LINHA_PRODUTO, PERFIL_PONTO_VENDA PERFIL_PDV, EXTRACT(year FROM "DATA" ) ANO, EXTRACT(month FROM "DATA") MES, COUNT(*) QUANTIDADE
+  FROM stg_dataset d
  WHERE TIPO_COLETA = 'DISPONIBILIDADE' AND VALOR = 'SIM'
- GROUP BY ID_PONTO_VENDA, ID_LINHA_PRODUTO, PERFIL_PONTO_VENDA, TO_CHAR(DATA, 'YYYY'),TO_CHAR(DATA, 'MM')</sql>
+ GROUP BY ID_PONTO_VENDA, ID_LINHA_PRODUTO, PERFIL_PONTO_VENDA, EXTRACT(year FROM "DATA") ,EXTRACT(month FROM "DATA")</sql>
     <limit>0</limit>
     <lookup/>
     <execute_each_row>N</execute_each_row>

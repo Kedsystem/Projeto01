@@ -315,7 +315,7 @@
       <attributes/>
       <specification_method>filename</specification_method>
       <job_object_id/>
-      <filename>D:\PDI\Involves\Projeto01\JOB_DIM.kjb</filename>
+      <filename>${Internal.Entry.Current.Directory}/JOB_DIM.kjb</filename>
       <jobname/>
       <directory/>
       <arg_from_previous>N</arg_from_previous>
@@ -352,7 +352,7 @@
       <attributes/>
       <specification_method>filename</specification_method>
       <job_object_id/>
-      <filename>D:\PDI\Involves\Projeto01\JOB_FATO.kjb</filename>
+      <filename>${Internal.Entry.Current.Directory}/JOB_FATO.kjb</filename>
       <jobname/>
       <directory/>
       <arg_from_previous>N</arg_from_previous>

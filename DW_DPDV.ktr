@@ -437,14 +437,14 @@
   <notepads>
   </notepads>
   <connection>
-    <name>SETELIOOK</name>
-    <server>10.1.211.100</server>
-    <type>ORACLE</type>
+    <name>STELIOOK</name>
+    <server>localhost</server>
+    <type>POSTGRESQL</type>
     <access>Native</access>
-    <database>dborcl</database>
-    <port>1521</port>
-    <username>STELIOOK</username>
-    <password>Encrypted 2be98afc86aa7f2e4b80dfd7c8f87bad1</password>
+    <database>involves</database>
+    <port>5432</port>
+    <username>postgres</username>
+    <password>Encrypted 2be98afc86aa7f2e4f34dfd2187cbfb83</password>
     <servername/>
     <data_tablespace/>
     <index_tablespace/>
@@ -463,7 +463,7 @@
       </attribute>
       <attribute>
         <code>PORT_NUMBER</code>
-        <attribute>1521</attribute>
+        <attribute>5432</attribute>
       </attribute>
       <attribute>
         <code>PRESERVE_RESERVED_WORD_CASE</code>
@@ -471,10 +471,6 @@
       </attribute>
       <attribute>
         <code>QUOTE_ALL_FIELDS</code>
-        <attribute>N</attribute>
-      </attribute>
-      <attribute>
-        <code>STRICT_NUMBER_38_INTERPRETATION</code>
         <attribute>N</attribute>
       </attribute>
       <attribute>
@@ -494,44 +490,12 @@
   <order>
     <hop>
       <from>Table input</from>
-      <to>DW_DCALENDARIO</to>
+      <to>DW_DPDV</to>
       <enabled>Y</enabled>
     </hop>
   </order>
   <step>
-    <name>Table input</name>
-    <type>TableInput</type>
-    <description/>
-    <distribute>Y</distribute>
-    <custom_distribution/>
-    <copies>1</copies>
-    <partitioning>
-      <method>none</method>
-      <schema_name/>
-    </partitioning>
-    <connection>SETELIOOK</connection>
-    <sql>SELECT * FROM STG_DPDV</sql>
-    <limit>0</limit>
-    <lookup/>
-    <execute_each_row>N</execute_each_row>
-    <variables_active>N</variables_active>
-    <lazy_conversion_active>N</lazy_conversion_active>
-    <attributes/>
-    <cluster_schema/>
-    <remotesteps>
-      <input>
-      </input>
-      <output>
-      </output>
-    </remotesteps>
-    <GUI>
-      <xloc>64</xloc>
-      <yloc>48</yloc>
-      <draw>Y</draw>
-    </GUI>
-  </step>
-  <step>
-    <name>DW_DCALENDARIO</name>
+    <name>DW_DPDV</name>
     <type>DimensionLookup</type>
     <description/>
     <distribute>Y</distribute>
@@ -543,7 +507,7 @@
     </partitioning>
     <schema/>
     <table>DW_DPDV</table>
-    <connection>SETELIOOK</connection>
+    <connection>STELIOOK</connection>
     <commit>100</commit>
     <update>Y</update>
     <fields>
@@ -583,6 +547,38 @@
     </remotesteps>
     <GUI>
       <xloc>192</xloc>
+      <yloc>48</yloc>
+      <draw>Y</draw>
+    </GUI>
+  </step>
+  <step>
+    <name>Table input</name>
+    <type>TableInput</type>
+    <description/>
+    <distribute>Y</distribute>
+    <custom_distribution/>
+    <copies>1</copies>
+    <partitioning>
+      <method>none</method>
+      <schema_name/>
+    </partitioning>
+    <connection>STELIOOK</connection>
+    <sql>SELECT * FROM STG_DPDV</sql>
+    <limit>0</limit>
+    <lookup/>
+    <execute_each_row>N</execute_each_row>
+    <variables_active>N</variables_active>
+    <lazy_conversion_active>N</lazy_conversion_active>
+    <attributes/>
+    <cluster_schema/>
+    <remotesteps>
+      <input>
+      </input>
+      <output>
+      </output>
+    </remotesteps>
+    <GUI>
+      <xloc>64</xloc>
       <yloc>48</yloc>
       <draw>Y</draw>
     </GUI>

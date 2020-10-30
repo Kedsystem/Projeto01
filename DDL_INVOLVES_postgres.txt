@@ -1,0 +1,332 @@
+-- Database: involves
+
+-- DROP DATABASE involves;
+
+CREATE DATABASE involves
+  WITH OWNER = postgres
+       ENCODING = 'UTF8'
+       TABLESPACE = pg_default
+       LC_COLLATE = 'Portuguese_Brazil.1252'
+       LC_CTYPE = 'Portuguese_Brazil.1252'
+       CONNECTION LIMIT = -1;
+
+
+-- Table: stg_dataset
+
+-- DROP TABLE stg_dataset;
+
+CREATE TABLE stg_dataset
+(
+  id_dataset bigint,
+  id_ponto_venda bigint,
+  nome_ponto_venda character varying(14),
+  perfil_ponto_venda character varying(9),
+  "DATA" date,
+  id_linha_produto bigint,
+  nome_linha_produto character varying(18),
+  marca_linha_produto character varying(13),
+  tipo_coleta character varying(15),
+  valor character varying(4)
+)
+WITH (
+  OIDS=FALSE
+);
+ALTER TABLE stg_dataset
+  OWNER TO postgres;
+
+-- Index: idx_stg_dataset_lookup
+
+-- DROP INDEX idx_stg_dataset_lookup;
+
+CREATE INDEX idx_stg_dataset_lookup
+  ON stg_dataset
+  USING btree
+  (id_dataset);
+
+-- Table: stg_dcalendario
+
+-- DROP TABLE stg_dcalendario;
+
+CREATE TABLE stg_dcalendario
+(
+  "DATA" date,
+  ano double precision,
+  mes double precision
+)
+WITH (
+  OIDS=FALSE
+);
+ALTER TABLE stg_dcalendario
+  OWNER TO postgres;
+
+-- Index: idx_stg_dcalendario_lookup
+
+-- DROP INDEX idx_stg_dcalendario_lookup;
+
+CREATE INDEX idx_stg_dcalendario_lookup
+  ON stg_dcalendario
+  USING btree
+  ("DATA");
+
+-- Table: stg_dlinha_produto
+
+-- DROP TABLE stg_dlinha_produto;
+
+CREATE TABLE stg_dlinha_produto
+(
+  id_produto bigint,
+  perfil_pdv character varying(9),
+  nome_produto character varying(18)
+)
+WITH (
+  OIDS=FALSE
+);
+ALTER TABLE stg_dlinha_produto
+  OWNER TO postgres;
+
+-- Index: idx_stg_dlinha_produto_lookup
+
+-- DROP INDEX idx_stg_dlinha_produto_lookup;
+
+CREATE INDEX idx_stg_dlinha_produto_lookup
+  ON stg_dlinha_produto
+  USING btree
+  (id_produto, perfil_pdv COLLATE pg_catalog."default");
+
+-- Table: stg_dpdv
+
+-- DROP TABLE stg_dpdv;
+
+CREATE TABLE stg_dpdv
+(
+  id_pdv bigint,
+  nome_pdv character varying(14)
+)
+WITH (
+  OIDS=FALSE
+);
+ALTER TABLE stg_dpdv
+  OWNER TO postgres;
+
+-- Index: idx_stg_dpdv_lookup
+
+-- DROP INDEX idx_stg_dpdv_lookup;
+
+CREATE INDEX idx_stg_dpdv_lookup
+  ON stg_dpdv
+  USING btree
+  (id_pdv);
+
+- Table: dw_dcalendario
+
+-- DROP TABLE dw_dcalendario;
+
+CREATE TABLE dw_dcalendario
+(
+  sk_calendario bigserial NOT NULL,
+  version integer,
+  date_from date,
+  date_to date,
+  ano numeric(38,0),
+  mes numeric(38,0),
+  "DATA" date
+)
+WITH (
+  OIDS=FALSE
+);
+ALTER TABLE dw_dcalendario
+  OWNER TO postgres;
+
+-- Index: idx_dw_dcalendario_lookup
+
+-- DROP INDEX idx_dw_dcalendario_lookup;
+
+CREATE INDEX idx_dw_dcalendario_lookup
+  ON dw_dcalendario
+  USING btree
+  (ano, mes, "DATA");
+
+-- Index: idx_dw_dcalendario_tk
+
+-- DROP INDEX idx_dw_dcalendario_tk;
+
+CREATE INDEX idx_dw_dcalendario_tk
+  ON dw_dcalendario
+  USING btree
+  (sk_calendario);
+
+-- Table: dw_dlinha_produto
+
+-- DROP TABLE dw_dlinha_produto;
+
+CREATE TABLE dw_dlinha_produto
+(
+  sk_linhaproduto bigserial NOT NULL,
+  version integer,
+  date_from timestamp without time zone,
+  date_to timestamp without time zone,
+  id_produto bigint,
+  perfil_pdv character varying(9)
+)
+WITH (
+  OIDS=FALSE
+);
+ALTER TABLE dw_dlinha_produto
+  OWNER TO postgres;
+
+-- Index: idx_dw_dlinha_produto_lookup
+
+-- DROP INDEX idx_dw_dlinha_produto_lookup;
+
+CREATE INDEX idx_dw_dlinha_produto_lookup
+  ON dw_dlinha_produto
+  USING btree
+  (id_produto, perfil_pdv COLLATE pg_catalog."default");
+
+-- Index: idx_dw_dlinha_produto_tk
+
+-- DROP INDEX idx_dw_dlinha_produto_tk;
+
+CREATE INDEX idx_dw_dlinha_produto_tk
+  ON dw_dlinha_produto
+  USING btree
+  (sk_linhaproduto);
+
+- Table: dw_dpdv
+
+-- DROP TABLE dw_dpdv;
+
+CREATE TABLE dw_dpdv
+(
+  sk_pdv bigserial NOT NULL,
+  version integer,
+  date_from timestamp without time zone,
+  date_to timestamp without time zone,
+  id_pdv bigint
+)
+WITH (
+  OIDS=FALSE
+);
+ALTER TABLE dw_dpdv
+  OWNER TO postgres;
+
+-- Index: idx_dw_dpdv_lookup
+
+-- DROP INDEX idx_dw_dpdv_lookup;
+
+CREATE INDEX idx_dw_dpdv_lookup
+  ON dw_dpdv
+  USING btree
+  (id_pdv);
+
+-- Index: idx_dw_dpdv_tk
+
+-- DROP INDEX idx_dw_dpdv_tk;
+
+CREATE INDEX idx_dw_dpdv_tk
+  ON dw_dpdv
+  USING btree
+  (sk_pdv);
+
+-- Table: dw_ft_diponibilidade
+
+-- DROP TABLE dw_ft_diponibilidade;
+
+CREATE TABLE dw_ft_diponibilidade
+(
+  sk_pdv integer,
+  sk_linhaproduto integer,
+  sk_calendario integer,
+  quantidade bigint
+)
+WITH (
+  OIDS=FALSE
+);
+ALTER TABLE dw_ft_diponibilidade
+  OWNER TO postgres;
+
+-- Index: idx_dw_ft_diponibilidade_lookup
+
+-- DROP INDEX idx_dw_ft_diponibilidade_lookup;
+
+CREATE INDEX idx_dw_ft_diponibilidade_lookup
+  ON dw_ft_diponibilidade
+  USING btree
+  (sk_pdv, sk_linhaproduto, sk_calendario);
+
+- Table: dw_ft_diponibilidadeagreg
+
+-- DROP TABLE dw_ft_diponibilidadeagreg;
+
+CREATE TABLE dw_ft_diponibilidadeagreg
+(
+  sk_pdv integer,
+  sk_calendario integer,
+  quantidade bigint
+)
+WITH (
+  OIDS=FALSE
+);
+ALTER TABLE dw_ft_diponibilidadeagreg
+  OWNER TO postgres;
+
+-- Index: idx_dw_ft_diponibilidadeagreg_lookup
+
+-- DROP INDEX idx_dw_ft_diponibilidadeagreg_lookup;
+
+CREATE INDEX idx_dw_ft_diponibilidadeagreg_lookup
+  ON dw_ft_diponibilidadeagreg
+  USING btree
+  (sk_pdv, sk_calendario);
+
+-- Table: dw_ft_ponto_extra
+
+-- DROP TABLE dw_ft_ponto_extra;
+
+CREATE TABLE dw_ft_ponto_extra
+(
+  sk_pdv integer,
+  sk_linhaproduto integer,
+  sk_calendario integer,
+  valor double precision
+)
+WITH (
+  OIDS=FALSE
+);
+ALTER TABLE dw_ft_ponto_extra
+  OWNER TO postgres;
+
+-- Index: idx_dw_ft_ponto_extra_lookup
+
+-- DROP INDEX idx_dw_ft_ponto_extra_lookup;
+
+CREATE INDEX idx_dw_ft_ponto_extra_lookup
+  ON dw_ft_ponto_extra
+  USING btree
+  (sk_pdv, sk_linhaproduto, sk_calendario);
+
+-- Table: dw_ft_ponto_extraagreg
+
+-- DROP TABLE dw_ft_ponto_extraagreg;
+
+CREATE TABLE dw_ft_ponto_extraagreg
+(
+  sk_pdv integer,
+  sk_calendario integer,
+  valor double precision
+)
+WITH (
+  OIDS=FALSE
+);
+ALTER TABLE dw_ft_ponto_extraagreg
+  OWNER TO postgres;
+
+-- Index: idx_dw_ft_ponto_extraagreg_lookup
+
+-- DROP INDEX idx_dw_ft_ponto_extraagreg_lookup;
+
+CREATE INDEX idx_dw_ft_ponto_extraagreg_lookup
+  ON dw_ft_ponto_extraagreg
+  USING btree
+  (sk_pdv, sk_calendario);
+

@@ -437,14 +437,14 @@
   <notepads>
   </notepads>
   <connection>
-    <name>SETELIOOK</name>
-    <server>10.1.211.100</server>
-    <type>ORACLE</type>
+    <name>STELIOOK</name>
+    <server>localhost</server>
+    <type>POSTGRESQL</type>
     <access>Native</access>
-    <database>dborcl</database>
-    <port>1521</port>
-    <username>STELIOOK</username>
-    <password>Encrypted 2be98afc86aa7f2e4b80dfd7c8f87bad1</password>
+    <database>involves</database>
+    <port>5432</port>
+    <username>postgres</username>
+    <password>Encrypted 2be98afc86aa7f2e4f34dfd2187cbfb83</password>
     <servername/>
     <data_tablespace/>
     <index_tablespace/>
@@ -463,7 +463,7 @@
       </attribute>
       <attribute>
         <code>PORT_NUMBER</code>
-        <attribute>1521</attribute>
+        <attribute>5432</attribute>
       </attribute>
       <attribute>
         <code>PRESERVE_RESERVED_WORD_CASE</code>
@@ -471,10 +471,6 @@
       </attribute>
       <attribute>
         <code>QUOTE_ALL_FIELDS</code>
-        <attribute>N</attribute>
-      </attribute>
-      <attribute>
-        <code>STRICT_NUMBER_38_INTERPRETATION</code>
         <attribute>N</attribute>
       </attribute>
       <attribute>
@@ -511,7 +507,7 @@
     </partitioning>
     <schema/>
     <table>DW_DLINHA_PRODUTO</table>
-    <connection>SETELIOOK</connection>
+    <connection>STELIOOK</connection>
     <commit>100</commit>
     <update>Y</update>
     <fields>
@@ -570,7 +566,7 @@
       <method>none</method>
       <schema_name/>
     </partitioning>
-    <connection>SETELIOOK</connection>
+    <connection>STELIOOK</connection>
     <sql>SELECT * FROM STG_DLINHA_PRODUTO</sql>
     <limit>0</limit>
     <lookup/>
