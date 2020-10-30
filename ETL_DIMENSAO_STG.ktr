@@ -589,7 +589,7 @@
       <method>none</method>
       <schema_name/>
     </partitioning>
-    <filename>D:\PDI\Involves\DATASET_TESTE_DE.csv</filename>
+    <filename>D:\PDI\Involves\Projeto01\DATASET_TESTE_DE.csv</filename>
     <filename_field/>
     <rownum_field/>
     <include_filename>N</include_filename>
@@ -740,7 +740,7 @@
       <method>none</method>
       <schema_name/>
     </partitioning>
-    <filename>D:\PDI\Involves\DATASET_TESTE_DE.csv</filename>
+    <filename>D:\PDI\Involves\Projeto01\DATASET_TESTE_DE.csv</filename>
     <filename_field/>
     <rownum_field/>
     <include_filename>N</include_filename>
@@ -891,7 +891,7 @@
       <method>none</method>
       <schema_name/>
     </partitioning>
-    <filename>D:\PDI\Involves\DATASET_TESTE_DE.csv</filename>
+    <filename>D:\PDI\Involves\Projeto01\DATASET_TESTE_DE.csv</filename>
     <filename_field/>
     <rownum_field/>
     <include_filename>N</include_filename>
@@ -1042,7 +1042,7 @@
       <method>none</method>
       <schema_name/>
     </partitioning>
-    <filename>D:\PDI\Involves\DATASET_TESTE_DE.csv</filename>
+    <filename>D:\PDI\Involves\Projeto01\DATASET_TESTE_DE.csv</filename>
     <filename_field/>
     <rownum_field/>
     <include_filename>N</include_filename>
@@ -1488,6 +1488,166 @@
     <GUI>
       <xloc>192</xloc>
       <yloc>16</yloc>
+      <draw>Y</draw>
+    </GUI>
+  </step>
+  <step>
+    <name>Insert / update STG_DCALENDARIO</name>
+    <type>InsertUpdate</type>
+    <description/>
+    <distribute>Y</distribute>
+    <custom_distribution/>
+    <copies>1</copies>
+    <partitioning>
+      <method>none</method>
+      <schema_name/>
+    </partitioning>
+    <connection>SETELIOOK</connection>
+    <commit>100</commit>
+    <update_bypassed>N</update_bypassed>
+    <lookup>
+      <schema/>
+      <table>STG_DCALENDARIO</table>
+      <key>
+        <name>DATA</name>
+        <field>DATA</field>
+        <condition>=</condition>
+        <name2/>
+      </key>
+      <value>
+        <name>DATA</name>
+        <rename>DATA</rename>
+        <update>N</update>
+      </value>
+      <value>
+        <name>Ano</name>
+        <rename>Ano</rename>
+        <update>Y</update>
+      </value>
+      <value>
+        <name>Mes</name>
+        <rename>Mes</rename>
+        <update>Y</update>
+      </value>
+    </lookup>
+    <attributes/>
+    <cluster_schema/>
+    <remotesteps>
+      <input>
+      </input>
+      <output>
+      </output>
+    </remotesteps>
+    <GUI>
+      <xloc>800</xloc>
+      <yloc>96</yloc>
+      <draw>Y</draw>
+    </GUI>
+  </step>
+  <step>
+    <name>Insert / update STG_DLINHA_PRODUTO</name>
+    <type>InsertUpdate</type>
+    <description/>
+    <distribute>Y</distribute>
+    <custom_distribution/>
+    <copies>1</copies>
+    <partitioning>
+      <method>none</method>
+      <schema_name/>
+    </partitioning>
+    <connection>SETELIOOK</connection>
+    <commit>100</commit>
+    <update_bypassed>N</update_bypassed>
+    <lookup>
+      <schema/>
+      <table>STG_DLINHA_PRODUTO</table>
+      <key>
+        <name>ID_PRODUTO</name>
+        <field>ID_PRODUTO</field>
+        <condition>=</condition>
+        <name2/>
+      </key>
+      <key>
+        <name>PERFIL_PDV</name>
+        <field>PERFIL_PDV</field>
+        <condition>=</condition>
+        <name2/>
+      </key>
+      <value>
+        <name>ID_PRODUTO</name>
+        <rename>ID_PRODUTO</rename>
+        <update>N</update>
+      </value>
+      <value>
+        <name>PERFIL_PDV</name>
+        <rename>PERFIL_PDV</rename>
+        <update>Y</update>
+      </value>
+      <value>
+        <name>NOME_PRODUTO</name>
+        <rename>NOME_PRODUTO</rename>
+        <update>Y</update>
+      </value>
+    </lookup>
+    <attributes/>
+    <cluster_schema/>
+    <remotesteps>
+      <input>
+      </input>
+      <output>
+      </output>
+    </remotesteps>
+    <GUI>
+      <xloc>800</xloc>
+      <yloc>288</yloc>
+      <draw>Y</draw>
+    </GUI>
+  </step>
+  <step>
+    <name>Insert / update STG_DPDV</name>
+    <type>InsertUpdate</type>
+    <description/>
+    <distribute>Y</distribute>
+    <custom_distribution/>
+    <copies>1</copies>
+    <partitioning>
+      <method>none</method>
+      <schema_name/>
+    </partitioning>
+    <connection>SETELIOOK</connection>
+    <commit>100</commit>
+    <update_bypassed>N</update_bypassed>
+    <lookup>
+      <schema/>
+      <table>STG_DPDV</table>
+      <key>
+        <name>ID_PDV</name>
+        <field>ID_PDV</field>
+        <condition>=</condition>
+        <name2/>
+      </key>
+      <value>
+        <name>ID_PDV</name>
+        <rename>ID_PDV</rename>
+        <update>N</update>
+      </value>
+      <value>
+        <name>NOME_PDV</name>
+        <rename>NOME_PDV</rename>
+        <update>Y</update>
+      </value>
+    </lookup>
+    <attributes/>
+    <cluster_schema/>
+    <remotesteps>
+      <input>
+      </input>
+      <output>
+      </output>
+    </remotesteps>
+    <GUI>
+      <xloc>800</xloc>
+      <yloc>192</yloc>
       <draw>Y</draw>
     </GUI>
   </step>
@@ -2087,166 +2247,6 @@
     </remotesteps>
     <GUI>
       <xloc>304</xloc>
-      <yloc>288</yloc>
-      <draw>Y</draw>
-    </GUI>
-  </step>
-  <step>
-    <name>Insert / update STG_DCALENDARIO</name>
-    <type>InsertUpdate</type>
-    <description/>
-    <distribute>Y</distribute>
-    <custom_distribution/>
-    <copies>1</copies>
-    <partitioning>
-      <method>none</method>
-      <schema_name/>
-    </partitioning>
-    <connection>SETELIOOK</connection>
-    <commit>100</commit>
-    <update_bypassed>N</update_bypassed>
-    <lookup>
-      <schema/>
-      <table>STG_DCALENDARIO</table>
-      <key>
-        <name>DATA</name>
-        <field>DATA</field>
-        <condition>=</condition>
-        <name2/>
-      </key>
-      <value>
-        <name>DATA</name>
-        <rename>DATA</rename>
-        <update>N</update>
-      </value>
-      <value>
-        <name>Ano</name>
-        <rename>Ano</rename>
-        <update>Y</update>
-      </value>
-      <value>
-        <name>Mes</name>
-        <rename>Mes</rename>
-        <update>Y</update>
-      </value>
-    </lookup>
-    <attributes/>
-    <cluster_schema/>
-    <remotesteps>
-      <input>
-      </input>
-      <output>
-      </output>
-    </remotesteps>
-    <GUI>
-      <xloc>800</xloc>
-      <yloc>96</yloc>
-      <draw>Y</draw>
-    </GUI>
-  </step>
-  <step>
-    <name>Insert / update STG_DPDV</name>
-    <type>InsertUpdate</type>
-    <description/>
-    <distribute>Y</distribute>
-    <custom_distribution/>
-    <copies>1</copies>
-    <partitioning>
-      <method>none</method>
-      <schema_name/>
-    </partitioning>
-    <connection>SETELIOOK</connection>
-    <commit>100</commit>
-    <update_bypassed>N</update_bypassed>
-    <lookup>
-      <schema/>
-      <table>STG_DPDV</table>
-      <key>
-        <name>ID_PDV</name>
-        <field>ID_PDV</field>
-        <condition>=</condition>
-        <name2/>
-      </key>
-      <value>
-        <name>ID_PDV</name>
-        <rename>ID_PDV</rename>
-        <update>N</update>
-      </value>
-      <value>
-        <name>NOME_PDV</name>
-        <rename>NOME_PDV</rename>
-        <update>Y</update>
-      </value>
-    </lookup>
-    <attributes/>
-    <cluster_schema/>
-    <remotesteps>
-      <input>
-      </input>
-      <output>
-      </output>
-    </remotesteps>
-    <GUI>
-      <xloc>800</xloc>
-      <yloc>192</yloc>
-      <draw>Y</draw>
-    </GUI>
-  </step>
-  <step>
-    <name>Insert / update STG_DLINHA_PRODUTO</name>
-    <type>InsertUpdate</type>
-    <description/>
-    <distribute>Y</distribute>
-    <custom_distribution/>
-    <copies>1</copies>
-    <partitioning>
-      <method>none</method>
-      <schema_name/>
-    </partitioning>
-    <connection>SETELIOOK</connection>
-    <commit>100</commit>
-    <update_bypassed>N</update_bypassed>
-    <lookup>
-      <schema/>
-      <table>STG_DLINHA_PRODUTO</table>
-      <key>
-        <name>ID_PRODUTO</name>
-        <field>ID_PRODUTO</field>
-        <condition>=</condition>
-        <name2/>
-      </key>
-      <key>
-        <name>PERFIL_PDV</name>
-        <field>PERFIL_PDV</field>
-        <condition>=</condition>
-        <name2/>
-      </key>
-      <value>
-        <name>ID_PRODUTO</name>
-        <rename>ID_PRODUTO</rename>
-        <update>N</update>
-      </value>
-      <value>
-        <name>PERFIL_PDV</name>
-        <rename>PERFIL_PDV</rename>
-        <update>Y</update>
-      </value>
-      <value>
-        <name>NOME_PRODUTO</name>
-        <rename>NOME_PRODUTO</rename>
-        <update>Y</update>
-      </value>
-    </lookup>
-    <attributes/>
-    <cluster_schema/>
-    <remotesteps>
-      <input>
-      </input>
-      <output>
-      </output>
-    </remotesteps>
-    <GUI>
-      <xloc>800</xloc>
       <yloc>288</yloc>
       <draw>Y</draw>
     </GUI>
